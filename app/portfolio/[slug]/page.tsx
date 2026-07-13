@@ -60,7 +60,7 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
               </p>
             </div>
             <div className="rounded-[24px] border border-white/10 bg-white/[0.035] p-5">
-              <p className="cf-micro-label">Truth label</p>
+              <p className="cf-micro-label">Build status</p>
               <p className="mt-3 text-2xl font-semibold text-white">{project.status}</p>
               <p className="mt-4 text-sm leading-7 text-[var(--cf-text-soft)]">{project.value}</p>
             </div>
@@ -68,7 +68,20 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-6 py-12 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-4 px-6 py-10 md:grid-cols-3 lg:px-8">
+        {[
+          ["Problem", project.problem],
+          ["Solution", project.solution],
+          ["Outcome", project.outcome],
+        ].map(([label, copy]) => (
+          <div key={label} className="rounded-[24px] border border-white/10 bg-white/[0.035] p-5">
+            <p className="cf-micro-label">{label}</p>
+            <p className="mt-3 text-sm leading-7 text-[var(--cf-text-soft)]">{copy}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
         <aside className="space-y-5">
           <div className="rounded-[24px] border border-white/10 bg-[#101722] p-5">
             <p className="cf-micro-label">My role</p>
@@ -90,7 +103,7 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
         </aside>
 
         <div className="rounded-[24px] border border-white/10 bg-white/[0.035] p-5">
-          <p className="cf-micro-label">Credibility proof</p>
+          <p className="cf-micro-label">Evidence</p>
           <div className="mt-5 grid gap-3">
             {project.proof.map((item) => (
               <div key={item} className="flex gap-3 rounded-2xl border border-white/8 bg-black/15 p-4">
@@ -116,9 +129,9 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
         <div className="rounded-[28px] border border-white/10 bg-[#0e1621] p-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <p className="cf-micro-label">Visual capture plan</p>
+              <p className="cf-micro-label">Evidence assets</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-                Portfolio visuals to collect
+                Proof artifacts
               </h2>
             </div>
             <Layers3 className="h-8 w-8 text-[var(--cf-highlight)]" />

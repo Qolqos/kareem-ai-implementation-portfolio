@@ -25,6 +25,10 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         </span>
       </div>
       <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--cf-text-soft)]">{project.summary}</p>
+      <div className="mt-4 rounded-2xl border border-white/8 bg-black/15 p-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/46">Problem</p>
+        <p className="mt-2 text-sm leading-6 text-white/74">{project.problem}</p>
+      </div>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {project.proof.slice(0, featured ? 3 : 2).map((item) => (
           <div key={item} className="flex gap-3 rounded-2xl border border-white/8 bg-black/15 p-3">

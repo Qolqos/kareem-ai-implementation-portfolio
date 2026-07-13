@@ -34,7 +34,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
             <nav className="flex items-center gap-5 text-sm text-white/68">
               <Link className="transition hover:text-white" href="/portfolio">
-                Work
+                Home
+              </Link>
+              <Link className="transition hover:text-white" href="/portfolio#featured-work">
+                Projects
+              </Link>
+              <Link className="transition hover:text-white" href="/portfolio#capabilities">
+                Capabilities
+              </Link>
+              <Link className="transition hover:text-white" href="/portfolio#about">
+                About
               </Link>
               <Link className="transition hover:text-white" href="/portfolio#contact">
                 Contact
