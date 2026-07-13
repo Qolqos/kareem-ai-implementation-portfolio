@@ -1,230 +1,323 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, ExternalLink, ShieldCheck, Workflow } from "lucide-react";
-
-import { MermaidDiagramCard } from "@/components/portfolio/MermaidDiagramCard";
-import { ProjectCard } from "@/components/portfolio/ProjectCard";
-import {
-  featuredPortfolioProjects,
-  portfolioProjects,
-} from "@/lib/data/portfolio-projects";
+import { ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kareem Singleton | AI Automation Engineer",
   description:
-    "AI automation portfolio covering mobile AI prototypes, workflow automation, data transformation pipelines, and practical product systems.",
+    "AI Automation Engineer portfolio featuring AI Lead Filter, AI Memory Card, Courier Copilot, and related automation systems.",
 };
 
-const proofStats = [
-  { label: "Featured builds", value: "4" },
-  { label: "Systems mapped", value: "10" },
-  { label: "Contact paths", value: "3" },
+const otherBuilds = [
+  {
+    name: "Spiral One",
+    copy:
+      "a project memory system that captures build lessons and checkpoints so future work does not repeat past mistakes. 31 audits, 25 documented lessons logged internally.",
+  },
+  {
+    name: "ARC System Family",
+    copy:
+      "evidence-based resume and cover letter generation, built to keep career claims defensible rather than just polished.",
+  },
+  {
+    name: "Reseller Item Scanner",
+    copy:
+      "a sourcing workflow that scores resale opportunities using item data, OCR, and market assumptions.",
+  },
+  {
+    name: "AI Concierge Web Assistant",
+    copy: "a site assistant that helps visitors navigate products and get guided answers.",
+  },
+  {
+    name: "Shorts Editor System",
+    copy: "converts editing instructions into structured short-form video production steps.",
+  },
+  {
+    name: "Social Copilot Observer",
+    copy:
+      "an on-device research prototype for capturing structured signal from social content without storing raw video.",
+  },
 ];
 
-const capabilities = [
-  "AI automation systems",
-  "Agent workflows",
-  "AI product prototyping",
-  "Data transformation pipelines",
-  "Mobile AI applications",
-  "Workflow optimization",
-];
+function VideoEmbed({
+  videoId,
+  title,
+  variant,
+  caption,
+}: {
+  videoId: string;
+  title: string;
+  variant: "horizontal" | "vertical";
+  caption?: string;
+}) {
+  return (
+    <figure className="my-6">
+      <div className={`video-embed video-embed--${variant}`}>
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      {caption ? (
+        <figcaption className="mt-2 text-center text-xs font-medium uppercase tracking-[0.14em] text-white/48">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+function BuiltWith({ items }: { items: string[] }) {
+  return (
+    <div className="mt-6">
+      <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/52">Built with</h4>
+      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+        {items.map((item) => (
+          <li key={item} className="rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-sm text-white/74">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function PortfolioPage() {
   return (
     <main className="cf-page-shell">
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 cf-proof-grid opacity-25" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:px-8 lg:py-24">
-          <div className="space-y-7">
-            <span className="cf-kicker">Kareem Singleton</span>
-            <div className="max-w-4xl space-y-5">
+        <div className="relative mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-24">
+          <div className="max-w-4xl space-y-6">
+            <p className="cf-kicker">Kareem Singleton</p>
+            <div className="space-y-4">
               <h1 className="cf-display text-5xl sm:text-6xl xl:text-7xl">
                 AI Automation Engineer
-                <span className="cf-display-serif block text-[1.04em] text-[var(--cf-cta)]">
-                  and product systems builder.
-                </span>
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[var(--cf-text-soft)]">
-                I design and build practical AI systems, from automation pipelines and decision
-                engines to mobile AI prototypes, with an emphasis on reliability, explainability,
-                and real-world workflows.
+              <p className="max-w-3xl text-lg leading-8 text-[var(--cf-text-soft)]">
+                I build software and automation systems that remove repetitive work, organize
+                information, and help people make better decisions.
+              </p>
+              <p className="max-w-3xl text-lg leading-8 text-[var(--cf-text-soft)]">
+                Some projects use AI. Others use computer vision, structured data, or traditional
+                software. The goal is always the same: build something useful that solves a real
+                problem and prove it works.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href="#featured-work" className="cf-button cf-button-primary">
-                View projects
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="#capabilities" className="cf-button cf-button-secondary">
-                Capabilities
-                <Workflow className="h-4 w-4" />
-              </Link>
+              <a href="#featured-projects" className="cf-button cf-button-primary">
+                View Projects
+              </a>
+              <a href="https://calendly.com/capsulefoundry/ai-automation-discovery-call" className="cf-button cf-button-secondary" target="_blank" rel="noreferrer">
+                Book a Call
+                <ExternalLink className="h-4 w-4" />
+              </a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <aside className="rounded-[28px] border border-white/10 bg-[#101722]/92 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.34)]">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="cf-micro-label">Focus</p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-                  AI systems that move from prototype to usable workflow.
-                </h2>
-              </div>
-              <ShieldCheck className="h-9 w-9 text-[var(--cf-highlight)]" />
-            </div>
-            <p className="mt-4 text-sm leading-7 text-[var(--cf-text-soft)]">
-              The work below emphasizes implementation, architecture, and clear evidence: what was
-              built, what problem it solves, and how the system operates.
+      <section id="featured-projects" className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+        <div className="mb-8">
+          <p className="cf-micro-label">Featured Projects</p>
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight text-white">Built systems</h2>
+        </div>
+
+        <div className="grid gap-8">
+          <article className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+            <p className="cf-micro-label">AI Lead Filter</p>
+            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+              Automated lead scoring and routing for service businesses
+            </h3>
+            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100">
+              Status: Built / In Active Outreach
             </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {proofStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <p className="text-2xl font-semibold text-white">{stat.value}</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/52">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section id="featured-work" className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="cf-micro-label">Featured projects</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-              Systems that show implementation depth
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-6 text-[var(--cf-text-soft)]">
-            A focused selection of AI workflows, automation systems, and product prototypes across
-            mobile AI, data transformation, career automation, and AI-assisted development.
-          </p>
-        </div>
-        <div className="grid gap-5 lg:grid-cols-2">
-          {featuredPortfolioProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} featured />
-          ))}
-        </div>
-      </section>
-
-      <section id="diagram-system" className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-        <div className="mb-8 max-w-3xl">
-          <p className="cf-micro-label">Architecture</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-            How the systems work
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--cf-text-soft)]">
-            Each diagram shows the main path from input to processing to output, so the technical
-            shape of the project is easy to understand before reading the deeper case study.
-          </p>
-        </div>
-        <div className="grid gap-6">
-          {featuredPortfolioProjects.map((project) => (
-            <MermaidDiagramCard key={project.slug} diagram={project.primaryDiagram} compact />
-          ))}
-        </div>
-      </section>
-
-      <section id="capabilities" className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="mb-8 max-w-3xl">
-          <p className="cf-micro-label">Capabilities</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-            Practical AI implementation across product and workflow systems
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--cf-text-soft)]">
-            The projects combine AI models, structured data flows, interface design, automation
-            logic, and deployment-aware software engineering.
-          </p>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {capabilities.map((capability) => (
-            <div key={capability} className="rounded-[22px] border border-white/10 bg-white/[0.035] p-5">
-              <p className="text-lg font-semibold text-white">{capability}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="cf-micro-label">Additional systems</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-              More workflow and product experiments
-            </h2>
-          </div>
-          <a href="#contact" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-100">
-            Request walkthrough
-            <ExternalLink className="h-4 w-4" />
-          </a>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {portfolioProjects
-            .filter((project) => !project.homepagePriority)
-            .map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-7xl px-6 pb-14 lg:px-8">
-        <div className="rounded-[28px] border border-white/10 bg-[#101722]/92 p-6 sm:p-8">
-          <p className="cf-micro-label">About</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-            I build AI systems that bridge prototypes and usable products.
-          </h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-[var(--cf-text-soft)]">
-            My work focuses on practical implementation: combining AI models, automation tooling,
-            software engineering, and structured workflows to create systems people can actually
-            use. The portfolio emphasizes clear problem framing, visible architecture, and evidence
-            of the workflow behind each build.
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-16 lg:px-8">
-        <div className="rounded-[28px] border border-cyan-200/20 bg-cyan-200/10 p-6 sm:p-8">
-          <p className="cf-micro-label">Next step</p>
-          <div className="mt-4 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-white">
-                Ready for a walkthrough, interview loop, or project review.
-              </h2>
-              <p className="mt-3 max-w-2xl text-base leading-7 text-cyan-50/78">
-                Book a discovery call, review the LinkedIn profile, or send a direct note about AI
-                automation, product systems, and implementation work.
+            <div className="mt-5 space-y-4 text-base leading-8 text-[var(--cf-text-soft)]">
+              <p>
+                Trades and service businesses lose deals because inbound leads sit unread or get
+                buried in email. AI Lead Filter is a Make.com automation that scores every inbound
+                lead in real time and routes the good ones straight to the owner: email, Slack,
+                ClickUp, or Google Sheets, whichever they already use.
+              </p>
+              <p>
+                During a demo, a live test lead runs through the intake form and the scored result
+                hits the prospect&apos;s inbox in real time, so they see the system work before they
+                buy.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              <a
-                href="https://calendly.com/capsulefoundry/ai-automation-discovery-call"
-                target="_blank"
-                rel="noreferrer"
-                className="cf-button cf-button-primary justify-center"
-              >
-                Book a call
-                <ExternalLink className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/kareem-singleton-5b795a386/"
-                target="_blank"
-                rel="noreferrer"
-                className="cf-button cf-button-secondary justify-center"
-              >
-                LinkedIn
-                <ExternalLink className="h-4 w-4" />
-              </a>
-              <a
-                href="mailto:capsulefoundry@gmail.com"
-                className="cf-button cf-button-secondary justify-center"
-              >
-                Email
-              </a>
+            <BuiltWith
+              items={[
+                "Make.com automation",
+                "Lead scoring logic",
+                "Multi-channel routing: email, Slack, ClickUp, Sheets",
+                "Google Form intake",
+                "Live demo workflow",
+              ]}
+            />
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/18 p-5">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/52">
+                Current state
+              </h4>
+              <p className="mt-3 text-base leading-8 text-[var(--cf-text-soft)]">
+                Fully built and demo-ready, with a setup fee plus optional monthly retainer.
+                Currently running outreach to a targeted list of HVAC and trades businesses, built
+                using an automated research workflow that identifies and qualifies prospects before
+                first contact.{" "}
+                <a href="https://aileadfilter.carrd.co" target="_blank" rel="noreferrer" className="font-semibold text-cyan-100 underline decoration-cyan-100/30 underline-offset-4">
+                  See the offer
+                </a>
+              </p>
+              <VideoEmbed
+                videoId="Qx2_7A8TiLE"
+                title="AI Lead Filter demo"
+                variant="horizontal"
+                caption="Demo video — no audio."
+              />
             </div>
+          </article>
+
+          <article className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+            <p className="cf-micro-label">AI Memory Card</p>
+            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+              Turning AI conversations into searchable knowledge
+            </h3>
+            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100">
+              Status: Shipped / Sold
+            </p>
+            <p className="mt-5 text-base leading-8 text-[var(--cf-text-soft)]">
+              AI conversations often contain useful ideas, research, and decisions, but finding that
+              information later is hard. AI Memory Card is a local tool that converts ChatGPT,
+              Claude, and Gemini exports into searchable spreadsheets and portable text archives.
+            </p>
+            <BuiltWith
+              items={[
+                "Multi-model export parsing",
+                "Spreadsheet generation",
+                "Duplicate detection",
+                "Search and summary views",
+                "Webhook support",
+              ]}
+            />
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/18 p-5">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/52">
+                Current state
+              </h4>
+              <p className="mt-3 text-base leading-8 text-[var(--cf-text-soft)]">
+                Validated on more than 27,000 parsed entries.{" "}
+                <a href="https://capsuleforge.gumroad.com/l/ugwqei" target="_blank" rel="noreferrer" className="font-semibold text-cyan-100 underline decoration-cyan-100/30 underline-offset-4">
+                  Available on Gumroad
+                </a>
+                .
+              </p>
+              <VideoEmbed videoId="szTUogYPFFM" title="AI Memory Card demo" variant="vertical" />
+            </div>
+          </article>
+
+          <article className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+            <p className="cf-micro-label">Courier Copilot</p>
+            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+              A mobile decision-support app for delivery drivers
+            </h3>
+            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100">
+              Status: Validated Prototype
+            </p>
+            <div className="mt-5 space-y-4 text-base leading-8 text-[var(--cf-text-soft)]">
+              <p>
+                Delivery drivers often have only a few seconds to decide whether an offer is worth
+                accepting. Courier Copilot is an iOS app that reads delivery offer screens, extracts
+                the details, calculates metrics, and returns a fast GREEN/YELLOW/RED recommendation.
+              </p>
+              <p>
+                The app runs entirely on-device: ReplayKit captures the screen, Vision OCR extracts
+                the data, and a rule-based scoring engine handles the decision — no cloud calls, no
+                latency.
+              </p>
+              <p>
+                The build includes a structured parser, scoring engine, local storage, CSV export,
+                and a test scaffold for validating scoring accuracy against real offer data.
+              </p>
+            </div>
+            <BuiltWith
+              items={[
+                "SwiftUI",
+                "ReplayKit",
+                "Apple Vision OCR",
+                "Rule-based scoring engine",
+                "Local storage + CSV export",
+                "Test scaffold",
+              ]}
+            />
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/18 p-5">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/52">
+                Current state
+              </h4>
+              <p className="mt-3 text-base leading-8 text-[var(--cf-text-soft)]">
+                Field-tested as an alpha prototype, with ongoing accuracy and usability
+                improvements.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+        <div className="mb-8">
+          <p className="cf-micro-label">Other Builds</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+            Internal tools, prototypes, and workflow experiments
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--cf-text-soft)]">
+            A few more systems built along the way.
+          </p>
+        </div>
+        <div className="grid gap-3">
+          {otherBuilds.map((build) => (
+            <p key={build.name} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-sm leading-7 text-white/74">
+              <span className="font-semibold text-white">{build.name}</span> — {build.copy}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+        <div className="rounded-[28px] border border-white/10 bg-[#101722]/92 p-6 sm:p-8">
+          <p className="cf-micro-label">About Me</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+            I build tools at the intersection of automation, software, and AI.
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-[var(--cf-text-soft)]">
+            My focus is practical implementation: taking a repetitive process, a messy workflow, or
+            a slow decision, and turning it into a system that actually gets used. I&apos;ve shipped
+            and sold products, built native mobile prototypes, and run live sales demos on my own
+            automation systems — I like the whole path from idea to paying customer, not just the
+            build.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-16 lg:px-8">
+        <div className="rounded-[28px] border border-cyan-200/20 bg-cyan-200/10 p-6 sm:p-8">
+          <p className="cf-micro-label">Let&apos;s Talk</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+            Have a workflow that takes too much time?
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-cyan-50/78">
+            A process that needs automating? An idea that needs to become a working system?
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="https://calendly.com/capsulefoundry/ai-automation-discovery-call" target="_blank" rel="noreferrer" className="cf-button cf-button-primary justify-center">
+              Book a call
+              <ExternalLink className="h-4 w-4" />
+            </a>
+            <a href="https://www.linkedin.com/in/kareem-singleton-5b795a386/" target="_blank" rel="noreferrer" className="cf-button cf-button-secondary justify-center">
+              Connect on LinkedIn
+              <ExternalLink className="h-4 w-4" />
+            </a>
+            <a href="mailto:capsulefoundry@gmail.com" className="cf-button cf-button-secondary justify-center">
+              Send an email
+            </a>
           </div>
         </div>
       </section>
