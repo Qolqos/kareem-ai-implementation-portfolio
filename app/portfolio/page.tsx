@@ -325,7 +325,7 @@ export default function PortfolioPage() {
           <div>
             <p className="cf-micro-label">About Me</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-              I build tools at the intersection of automation, software, and AI.
+              I build things that get used, not things that just work in theory
             </h2>
             <p className="mt-4 max-w-4xl text-base leading-8 text-[var(--cf-text-soft)]">
               I have a fine arts background. I was trained to take an idea and actually make it real,
