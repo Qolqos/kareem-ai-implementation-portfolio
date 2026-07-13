@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kareem Singleton | AI Automation Engineer",
@@ -81,6 +81,21 @@ function BuiltWith({ items }: { items: string[] }) {
         ))}
       </ul>
     </div>
+  );
+}
+
+function ProofRepoLink({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:border-cyan-100/40 hover:bg-cyan-100/10"
+    >
+      <Github className="h-4 w-4" />
+      Public proof repo
+      <ExternalLink className="h-3.5 w-3.5" />
+    </a>
   );
 }
 
@@ -175,6 +190,7 @@ export default function PortfolioPage() {
                 variant="horizontal"
                 caption="Demo video — no audio."
               />
+              <ProofRepoLink href="https://github.com/Qolqos/ai-lead-filter-public" />
             </div>
           </article>
 
@@ -212,6 +228,7 @@ export default function PortfolioPage() {
                 .
               </p>
               <VideoEmbed videoId="szTUogYPFFM" title="AI Memory Card demo" variant="vertical" />
+              <ProofRepoLink href="https://github.com/Qolqos/ai-memory-card-public" />
             </div>
           </article>
 
@@ -257,6 +274,7 @@ export default function PortfolioPage() {
                 Field-tested as an alpha prototype, with ongoing accuracy and usability
                 improvements.
               </p>
+              <ProofRepoLink href="https://github.com/Qolqos/courier-copilot-public" />
             </div>
           </article>
         </div>
