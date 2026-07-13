@@ -328,11 +328,12 @@ export default function PortfolioPage() {
               I build tools at the intersection of automation, software, and AI.
             </h2>
             <p className="mt-4 max-w-4xl text-base leading-8 text-[var(--cf-text-soft)]">
-              My focus is practical implementation: taking a repetitive process, a messy workflow, or
-              a slow decision, and turning it into a system that actually gets used. I&apos;ve shipped
-              products, built native mobile prototypes, and run live sales demos on my own
-              automation systems — I like the whole path from idea to paying customer, not just the
-              build.
+              I have a fine arts background. I was trained to take an idea and actually make it real,
+               not just talk about it. That's the same instinct I bring to building systems now. 
+               I notice friction: the repetitive stuff, the slow decisions, the things that shouldn't 
+               take as long as they do. Then I build something that fixes it. I try to keep the complexity
+               on my end, not the user's. If someone has to be technical to get value out of what I built, 
+               I haven't finished the job yet.
             </p>
           </div>
         </div>
