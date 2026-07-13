@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link className="transition hover:text-white" href="/portfolio#about">
                 About
               </Link>
-              <Link className="transition hover:text-white" href="/portfolio#resume">
+              <Link className="transition hover:text-white" href="/resume/Kareem_Singleton_Resume_2026.pdf" target="_blank" rel="noopener noreferrer">
                 Resume
               </Link>
               <Link className="transition hover:text-white" href="/portfolio#contact">

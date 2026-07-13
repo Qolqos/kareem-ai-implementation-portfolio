@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Download, ExternalLink, Github } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kareem Singleton | AI Automation Engineer",
@@ -36,93 +36,6 @@ const otherBuilds = [
     name: "Social Copilot Observer",
     copy:
       "an on-device research prototype for capturing structured signal from social content without storing raw video.",
-  },
-];
-
-const resumeContact = [
-  {
-    label: "Philadelphia, PA",
-    href: null,
-    icon: MapPin,
-  },
-  {
-    label: "kareem.s.singleton@gmail.com",
-    href: "mailto:kareem.s.singleton@gmail.com",
-    icon: Mail,
-  },
-  {
-    label: "267-546-7048",
-    href: "tel:+12675467048",
-    icon: Phone,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/kareem-singleton-5b795a386/",
-    icon: Linkedin,
-  },
-];
-
-const resumeSkills = [
-  {
-    group: "Automation & Integration",
-    items: ["Make.com", "REST APIs", "webhooks", "OAuth/token auth", "Google Workspace automation", "Slack", "ClickUp", "Sheets", "email routing"],
-  },
-  {
-    group: "Programming",
-    items: ["Python", "TypeScript/Next.js", "Swift/iOS", "Google Apps Script"],
-  },
-  {
-    group: "Testing & Reliability",
-    items: ["end-to-end workflow testing", "dedupe/idempotency logic", "structured logging", "error handling", "debug exports", "field testing"],
-  },
-  {
-    group: "AI-Assisted Development",
-    items: ["AI coding tool direction", "prompt design", "output verification", "cross-model comparison", "ChatGPT", "Claude", "Gemini"],
-  },
-  {
-    group: "Product & Documentation",
-    items: ["MVP scoping", "setup flows", "onboarding", "README and support docs", "non-technical user packaging"],
-  },
-];
-
-const resumeExperience = [
-  {
-    role: "Founder & Automation Engineer",
-    company: "Capsule Foundry",
-    dates: "Mar 2025 - Present",
-    bullets: [
-      "Design and build production automation systems for lead intake, data processing, conversation archiving, and mobile decision support.",
-      "Built and launched AI Lead Filter, a Make.com automation that scores inbound leads and routes them across email, Slack, ClickUp, and Google Sheets in real time.",
-      "Built and published AI Memory Card, a Python tool that converts ChatGPT, Claude, and Gemini exports into a searchable Excel archive and portable recall file, validated on 27,000+ parsed entries.",
-      "Built Courier Copilot, a native iOS prototype using ReplayKit screen capture and Vision OCR to extract delivery-offer data and return GREEN/YELLOW/RED accept decisions in real time.",
-      "Maintain a project audit and improvement system with 31 audits and 25 documented lessons used to catch recurring failure patterns and shorten ramp-up time on new builds.",
-    ],
-  },
-  {
-    role: "AI Automation Engineer (Freelance)",
-    company: "Upwork",
-    dates: "2026 - Present",
-    bullets: [
-      "Offer Make.com automation builds, API integrations, and workflow fixes to small business clients.",
-    ],
-  },
-  {
-    role: "Operations Manager",
-    company: "Fairspot / Helium IoT Network",
-    dates: "Jan 2021 - Aug 2022",
-    bullets: [
-      "Managed uptime and troubleshooting for a distributed network of 240+ IoT devices, maintaining 99%+ uptime.",
-      "Built repeatable processes for remote diagnostics, issue escalation, and installation quality across a non-technical host base.",
-    ],
-  },
-  {
-    role: "Founder & Creative Director",
-    company: "Bothered Otters",
-    dates: "Aug 2021 - Dec 2021",
-    bullets: [
-      "Built and led an international creative team, growing a digital community to 150K followers and 70K+ Discord members at its peak.",
-      "Used audience and engagement data to guide content strategy and prioritize what resonated with the community.",
-    ],
   },
 ];
 
@@ -213,8 +126,14 @@ export default function PortfolioPage() {
               <a href="#featured-projects" className="cf-button cf-button-primary">
                 View Projects
               </a>
-              <a href="#resume" className="cf-button cf-button-secondary">
-                View Resume
+              <a
+                href="/resume/Kareem_Singleton_Resume_2026.pdf"
+                className="cf-button cf-button-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume
+                <Download className="h-4 w-4" />
               </a>
               <a href="https://calendly.com/capsulefoundry/ai-automation-discovery-call" className="cf-button cf-button-secondary" target="_blank" rel="noreferrer">
                 Book a Call
@@ -291,7 +210,7 @@ export default function PortfolioPage() {
               Turning AI conversations into searchable knowledge
             </h3>
             <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100">
-              Status: Shipped / Sold
+              Status: Shipped / Available
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--cf-text-soft)]">
               AI conversations often contain useful ideas, research, and decisions, but finding that
@@ -411,133 +330,10 @@ export default function PortfolioPage() {
             <p className="mt-4 max-w-4xl text-base leading-8 text-[var(--cf-text-soft)]">
               My focus is practical implementation: taking a repetitive process, a messy workflow, or
               a slow decision, and turning it into a system that actually gets used. I&apos;ve shipped
-              and sold products, built native mobile prototypes, and run live sales demos on my own
+              products, built native mobile prototypes, and run live sales demos on my own
               automation systems — I like the whole path from idea to paying customer, not just the
               build.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="resume" className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
-        <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="cf-micro-label">Resume</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-              Automation engineer with shipped systems and field-tested workflows
-            </h2>
-          </div>
-          <a
-            href="https://docs.google.com/document/d/1_U0RggvhI6zMjPSABVn0qdl7Y-QlNrxvJ8CfV3hPsRE/edit?usp=sharing"
-            target="_blank"
-            rel="noreferrer"
-            className="cf-button cf-button-secondary justify-center"
-          >
-            Source resume
-            <ExternalLink className="h-4 w-4" />
-          </a>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.4fr]">
-          <aside className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
-            <p className="cf-micro-label">Kareem Singleton</p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-              AI Automation Engineer
-            </h3>
-            <p className="mt-4 text-base leading-8 text-[var(--cf-text-soft)]">
-              Workflow systems and integrations builder focused on Make.com automations, API
-              integrations, AI-assisted workflows, and practical software that holds up in real use.
-            </p>
-            <div className="mt-6 grid gap-3">
-              {resumeContact.map((item) => {
-                const Icon = item.icon;
-                const content = (
-                  <span className="inline-flex min-w-0 items-center gap-3 text-sm text-white/74">
-                    <Icon className="h-4 w-4 shrink-0 text-cyan-100/80" />
-                    <span className="break-words">{item.label}</span>
-                  </span>
-                );
-
-                return item.href ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="rounded-2xl border border-white/10 bg-black/18 px-4 py-3 transition hover:border-cyan-100/35 hover:bg-cyan-100/10"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <p key={item.label} className="rounded-2xl border border-white/10 bg-black/18 px-4 py-3">
-                    {content}
-                  </p>
-                );
-              })}
-            </div>
-
-            <div className="mt-8">
-              <p className="cf-micro-label">Education</p>
-              <p className="mt-3 text-base leading-7 text-white">
-                B.A. Fine Arts, Technical & Production Focus
-              </p>
-              <p className="mt-1 text-sm text-white/58">Penn State Abington, 2015</p>
-            </div>
-          </aside>
-
-          <div className="space-y-6">
-            <article className="rounded-[28px] border border-white/10 bg-[#101722]/92 p-6 sm:p-8">
-              <p className="cf-micro-label">Summary</p>
-              <p className="mt-4 text-base leading-8 text-[var(--cf-text-soft)]">
-                Automation engineer who builds and ships working systems, not just prototypes. I
-                design and build Make.com automations, API integrations, and AI-assisted workflows,
-                then test them until they hold up in real use. Recent work includes a lead-scoring
-                and routing system for service businesses, a multi-platform AI conversation
-                archiving tool validated on 27,000+ real entries, and a native iOS app using
-                computer vision for real-time decision support.
-              </p>
-            </article>
-
-            <article className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
-              <p className="cf-micro-label">Core Skills</p>
-              <div className="mt-5 grid gap-4">
-                {resumeSkills.map((skill) => (
-                  <div key={skill.group} className="rounded-2xl border border-white/10 bg-black/18 p-4">
-                    <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100">
-                      {skill.group}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-white/72">{skill.items.join(" / ")}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
-
-            <article className="rounded-[28px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
-              <p className="cf-micro-label">Experience</p>
-              <div className="mt-6 space-y-6">
-                {resumeExperience.map((job) => (
-                  <section key={`${job.company}-${job.role}`} className="border-t border-white/10 pt-6 first:border-t-0 first:pt-0">
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <h3 className="text-xl font-semibold tracking-tight text-white">{job.role}</h3>
-                        <p className="mt-1 text-sm font-semibold uppercase tracking-[0.14em] text-white/50">
-                          {job.company}
-                        </p>
-                      </div>
-                      <p className="text-sm font-semibold text-cyan-100/82">{job.dates}</p>
-                    </div>
-                    <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--cf-text-soft)]">
-                      {job.bullets.map((bullet) => (
-                        <li key={bullet} className="flex gap-3">
-                          <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-100/70" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ))}
-              </div>
-            </article>
           </div>
         </div>
       </section>
@@ -562,6 +358,15 @@ export default function PortfolioPage() {
             </a>
             <a href="mailto:capsulefoundry@gmail.com" className="cf-button cf-button-secondary justify-center">
               Send an email
+            </a>
+            <a
+              href="/resume/Kareem_Singleton_Resume_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cf-button cf-button-secondary justify-center"
+            >
+              Download Resume (PDF)
+              <Download className="h-4 w-4" />
             </a>
           </div>
         </div>
