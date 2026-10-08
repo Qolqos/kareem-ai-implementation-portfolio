@@ -11,3 +11,5 @@
 | Selected Spiral node restoration | Implemented, static-test verified | The selected valid node is restored from `spiral`; invalid query values safely clear it. |
 | Technical anchor navigation | Implemented, build-verified | Sections carry stable source-backed IDs; manual browser-anchor verification remains required. |
 | Keyboard navigation of architecture map | Implemented by native buttons | Manual assistive-technology testing remains required. |
+| V7 artwork-region and row synchronization | Implemented, static-test verified | The same seven source IDs drive positioned image regions and navigator rows; hover/focus updates the shared highlight and click opens the shared drawer. |
+| V7 desktop/mobile browser captures | UNRESOLVED | Local headless Chrome returned blank frames despite a healthy local Next response, so visual comparison screenshots were not accepted as evidence. Manual browser capture remains required. |

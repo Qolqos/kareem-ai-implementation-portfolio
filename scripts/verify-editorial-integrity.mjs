@@ -16,6 +16,7 @@ const ids = [...source.matchAll(/id: "(HOME\.[^"]+)"/g)].map((match) => match[1]
 if (new Set(ids).size !== ids.length) throw new Error("Duplicate approved-copy IDs detected.");
 if (!experience.includes("approvedCopy") || !technical.includes("layer3")) throw new Error("Rendered components are not connected to the source registries.");
 for (const behavior of ["popstate", "history.pushState", "spiral", "explore", "evidence"]) if (!experience.includes(behavior)) throw new Error(`Missing portfolio state-restoration behavior: ${behavior}`);
+for (const behavior of ["architecture-disc", "architecture-drawer", "hoveredLayer", "openLayer", "closeLayer"]) if (!experience.includes(behavior)) throw new Error(`Missing V7 architecture-explorer behavior: ${behavior}`);
 if (!source.includes("#field-testing") || !source.includes('id: "field-testing"')) throw new Error("Broken technical-link target: #field-testing");
 for (const anchor of ["models", "skills", "archive"]) if (!source.includes(`#${anchor}`) || !technical.includes(`\"${anchor}\"`)) throw new Error(`Broken technical-link target: #${anchor}`);
 console.log(`Editorial integrity check passed: ${ids.length} approved home-copy IDs, Layer 3 connected, Courier example validated.`);
