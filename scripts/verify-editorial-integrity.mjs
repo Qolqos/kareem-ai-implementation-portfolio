@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 const source = readFileSync(new URL("../lib/data/portfolio-rebuild.ts", import.meta.url), "utf8");
 const experience = readFileSync(new URL("../components/portfolio/PortfolioExperience.tsx", import.meta.url), "utf8");
 const technical = readFileSync(new URL("../components/portfolio/WorkTechnical.tsx", import.meta.url), "utf8");
+const header = readFileSync(new URL("../components/portfolio/SiteHeader.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
 
 const required = [
@@ -19,7 +20,9 @@ if (!experience.includes("approvedCopy") || !technical.includes("layer3")) throw
 for (const behavior of ["popstate", "history.pushState", "spiral", "explore", "evidence"]) if (!experience.includes(behavior)) throw new Error(`Missing portfolio state-restoration behavior: ${behavior}`);
 for (const behavior of ["architecture-disc", "hoveredLayer", "openLayer", "closeLayer"]) if (!experience.includes(behavior)) throw new Error(`Missing architecture-explorer behavior: ${behavior}`);
 for (const behavior of ["architecture-annotation", "architecture-inspection", "navSummary", "inspectionRef"]) if (!experience.includes(behavior)) throw new Error(`Missing V9 architecture-explorer behavior: ${behavior}`);
-for (const behavior of [".architecture-art { position:sticky", ".spiral-architecture.is-inspecting", ".architecture-inspection { align-self:start"]) if (!styles.includes(behavior)) throw new Error(`Missing V9 architecture-explorer styling: ${behavior}`);
+for (const behavior of [".architecture-art{position:sticky", ".spiral-architecture.is-inspecting", ".architecture-inspection{align-self:start"]) if (!styles.includes(behavior)) throw new Error(`Missing V9 architecture-explorer styling: ${behavior}`);
+for (const behavior of ["aria-expanded={open}", "mobile-navigation", "document.body.style.overflow", "event.key === \"Escape\""]) if (!header.includes(behavior)) throw new Error(`Missing responsive mobile-navigation behavior: ${behavior}`);
+for (const behavior of ["@media(max-width:900px)", ".site-menu-trigger{display:grid}", ".spiral-architecture,.spiral-architecture.is-inspecting{grid-template-columns:1fr"]) if (!styles.includes(behavior)) throw new Error(`Missing responsive layout guard: ${behavior}`);
 if (!source.includes("#field-testing") || !source.includes('id: "field-testing"')) throw new Error("Broken technical-link target: #field-testing");
 for (const anchor of ["models", "skills", "archive"]) if (!source.includes(`#${anchor}`) || !technical.includes(`\"${anchor}\"`)) throw new Error(`Broken technical-link target: #${anchor}`);
 console.log(`Editorial integrity check passed: ${ids.length} approved home-copy IDs, Layer 3 connected, Courier example validated.`);
