@@ -93,19 +93,19 @@ export const portfolioProjects: PortfolioProject[] = [
   B --> G[Benchmark and model record]`, proves: "On-device inference is distinct from optional retrieval and benchmark evidence." },
   },
   {
-    slug: "quel", name: "Quel", shortName: "Quel", status: "Pilot", homepagePriority: true,
+    slug: "quel", name: "Levo", shortName: "Levo", status: "Pilot", homepagePriority: true,
     eyebrow: "DBT-informed reflection and skills app",
     summary: "A local-first iOS app with an Android pilot for moving from a self-reported intensity state to bounded skills, optional reflection, and private event history.",
     role: "Product systems designer for state flow, local persistence, migration safety, and cross-platform implementation boundaries.",
     problem: "When someone is overwhelmed, a broad library is hard to navigate; a reflection tool needs a clear interaction path and careful safety boundaries.",
-    solution: "Quel routes an intensity/profile input to bounded skill options, supports optional after-state and effectiveness reflection, and stores a local event history with versioned migration.",
+    solution: "Levo routes an intensity/profile input to bounded skill options, supports optional after-state and effectiveness reflection, and stores a local event history with versioned migration.",
     outcome: "Source and tests support local persistence and migration behavior on iOS and an Android pilot, while outstanding parity work remains visible.",
     value: "A focused personal-reflection flow—not therapy, diagnosis, crisis response, or proven clinical care.",
     proof: ["Implemented flow: intensity/profile zone → bounded skill options → steps → event log → optional after-state → local history/patterns.", "Versioned iOS and Android event/draft stores and migration tests establish a local data boundary.", "A dated build log records 21/21 iOS simulator tests and 16/16 Android migration/unit tests at the inspected checkpoint."],
     stack: ["SwiftUI", "Jetpack Compose pilot", "local event store", "versioned migrations", "unit tests"],
     visuals: ["Synthetic iOS Now → skill → reflection → history sequence", "Sanitized event schema and migration receipt", "Dated iOS/Android parity matrix"],
     evidenceNote: "Current app screenshots were not located. Android is a pilot and the parity audit lists gaps; no full-parity or clinical-effectiveness claim is made.",
-    primaryDiagram: { title: "Quel Reflection Flow", mermaid: `flowchart LR
+    primaryDiagram: { title: "Levo Reflection Flow", mermaid: `flowchart LR
   A[Intensity / profile] --> B[Bounded zone]
   B --> C[Skill options]
   C --> D[Skill steps]
