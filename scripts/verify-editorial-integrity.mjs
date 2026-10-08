@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 const source = readFileSync(new URL("../lib/data/portfolio-rebuild.ts", import.meta.url), "utf8");
 const experience = readFileSync(new URL("../components/portfolio/PortfolioExperience.tsx", import.meta.url), "utf8");
 const technical = readFileSync(new URL("../components/portfolio/WorkTechnical.tsx", import.meta.url), "utf8");
+const styles = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
 
 const required = [
   "HOME.HERO.HEADLINE", "HOME.SPIRAL.INTRO.08", "HOME.SPIRAL.SAVE.03", "HOME.BUILT_THROUGH.05", "HOME.CLOSING.03",
@@ -16,7 +17,9 @@ const ids = [...source.matchAll(/id: "(HOME\.[^"]+)"/g)].map((match) => match[1]
 if (new Set(ids).size !== ids.length) throw new Error("Duplicate approved-copy IDs detected.");
 if (!experience.includes("approvedCopy") || !technical.includes("layer3")) throw new Error("Rendered components are not connected to the source registries.");
 for (const behavior of ["popstate", "history.pushState", "spiral", "explore", "evidence"]) if (!experience.includes(behavior)) throw new Error(`Missing portfolio state-restoration behavior: ${behavior}`);
-for (const behavior of ["architecture-disc", "architecture-drawer", "hoveredLayer", "openLayer", "closeLayer"]) if (!experience.includes(behavior)) throw new Error(`Missing V7 architecture-explorer behavior: ${behavior}`);
+for (const behavior of ["architecture-disc", "hoveredLayer", "openLayer", "closeLayer"]) if (!experience.includes(behavior)) throw new Error(`Missing architecture-explorer behavior: ${behavior}`);
+for (const behavior of ["architecture-annotation", "architecture-inspection", "navSummary", "inspectionRef"]) if (!experience.includes(behavior)) throw new Error(`Missing V9 architecture-explorer behavior: ${behavior}`);
+for (const behavior of [".architecture-art { position:sticky", ".spiral-architecture.is-inspecting", ".architecture-inspection { align-self:start"]) if (!styles.includes(behavior)) throw new Error(`Missing V9 architecture-explorer styling: ${behavior}`);
 if (!source.includes("#field-testing") || !source.includes('id: "field-testing"')) throw new Error("Broken technical-link target: #field-testing");
 for (const anchor of ["models", "skills", "archive"]) if (!source.includes(`#${anchor}`) || !technical.includes(`\"${anchor}\"`)) throw new Error(`Broken technical-link target: #${anchor}`);
 console.log(`Editorial integrity check passed: ${ids.length} approved home-copy IDs, Layer 3 connected, Courier example validated.`);

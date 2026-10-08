@@ -9,3 +9,4 @@ build/
 .vercel/
 .DS_Store
 *.tsbuildinfo
+.portfolio-internal/

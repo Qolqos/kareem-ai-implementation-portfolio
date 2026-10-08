@@ -12,4 +12,8 @@
 | Technical anchor navigation | Implemented, build-verified | Sections carry stable source-backed IDs; manual browser-anchor verification remains required. |
 | Keyboard navigation of architecture map | Implemented by native buttons | Manual assistive-technology testing remains required. |
 | V7 artwork-region and row synchronization | Implemented, static-test verified | The same seven source IDs drive positioned image regions and navigator rows; hover/focus updates the shared highlight and click opens the shared drawer. |
-| V7 desktop/mobile browser captures | UNRESOLVED | Local headless Chrome returned blank frames despite a healthy local Next response, so visual comparison screenshots were not accepted as evidence. Manual browser capture remains required. |
+| V7 desktop/mobile browser captures | PARTIAL | The default desktop page rendered and was inspected in local Chromium. A deep-linked selected-state Chromium capture still returned a blank frame despite a healthy response, so manual selected-state and mobile capture remains required. |
+| V9 selected desktop workspace | Implemented, static-test and build verified | Selection keeps stage, compact navigator, and an independently scrollable inspection panel inside the architecture section. |
+| V9 hover/focus synchronization | Implemented, static-test verified | Artwork regions, DOM annotations, and rows share the same layer ID and highlight state. |
+| V9 focus restoration | Implemented | Closing an inspection returns focus to the button that opened it when one is available. Manual browser verification remains required. |
+| V9 responsive inspection | Implemented, CSS verified | The desktop inspector is section-bounded; the narrow view is a fixed bottom sheet. Manual visual verification remains required. |
