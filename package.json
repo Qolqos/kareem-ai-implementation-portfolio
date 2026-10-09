@@ -7,7 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit --incremental false",
-    "test:copy": "node scripts/verify-editorial-integrity.mjs"
+    "test:copy": "node scripts/verify-editorial-integrity.mjs",
+    "test:evidence": "node scripts/verify-evidence-integration.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.564.0",

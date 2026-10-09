@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
-  { href: "/#work", label: "Work" },
+  { href: "/#spiral", label: "Work" },
   { href: "/#work", label: "Projects" },
   { href: "/work/spiral-one", label: "Spiral One" },
   { href: "/#about", label: "About" },
